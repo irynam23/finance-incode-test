@@ -21,6 +21,7 @@ export const InputPassword = forwardRef((props: any, ref) => {
       <StyledInputWrapper>
         <StyledInput
           ref={ref}
+          placeholder="***************"
           type={isPasswordMasked ? "password" : "text"}
           {...props}
         ></StyledInput>

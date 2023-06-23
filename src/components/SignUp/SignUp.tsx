@@ -13,17 +13,31 @@ import {
 } from "./SignUp.styled";
 import { useForm } from "react-hook-form";
 import { formConfig, FormData } from "./formConfig";
+import { useAppDispatch } from "../../redux/store";
+import * as authOperations from "../../redux/auth/operations";
 
 export const SignUp: React.FC<{
   toggleSignIn: () => void;
 }> = ({ toggleSignIn }) => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isValid },
   } = useForm<FormData>({ ...formConfig, mode: "onTouched" });
-  const onSubmit = (data: FormData) => console.log(data);
-  console.log(errors);
+  const onSubmit = (data: FormData) => {
+    dispatch(
+      authOperations.register({
+        password: data.password,
+        username: data.name,
+        displayName: data.fullName,
+      })
+    );
+    reset();
+    toggleSignIn();
+  };
+
   return (
     <StyledWrapper>
       <StyledTitle>Sign Up</StyledTitle>
@@ -33,6 +47,7 @@ export const SignUp: React.FC<{
         <StyledInputWrapper>
           <StyledInput
             type="text"
+            placeholder="Example Name"
             {...register("fullName")}
             autoComplete="off"
           />
@@ -42,7 +57,12 @@ export const SignUp: React.FC<{
         )}
         <StyledLabel>User Name</StyledLabel>
         <StyledInputWrapper>
-          <StyledInput type="text" {...register("name")} autoComplete="off" />
+          <StyledInput
+            type="text"
+            placeholder="Example123"
+            {...register("name")}
+            autoComplete="off"
+          />
         </StyledInputWrapper>
         {!!errors.name && <StyledMessage>{errors.name?.message}</StyledMessage>}
         <InputPassword {...register("password")} />

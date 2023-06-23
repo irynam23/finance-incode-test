@@ -1,33 +1,32 @@
 import axios, { AxiosResponse } from "axios";
-import { createAsyncThunk, Dispatch } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IAuthState } from "./slice";
 
 axios.defaults.baseURL = "https://expa.fly.dev";
 
 const createAuthAsyncThunk = createAsyncThunk.withTypes<{
   state: { auth: IAuthState };
-  dispatch: Dispatch;
   rejectValue: string;
-  extra: { s: string; n: number };
 }>();
 
-// Utility to add JWT
 const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// Utility to remove JWT
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = "";
 };
 
-/*
- * POST @ /users/signup
- * body: { name, email, password }
- */
 export const register = createAuthAsyncThunk(
   "auth/register",
-  async (credentials, thunkAPI) => {
+  async (
+    credentials: {
+      password: string;
+      username: string;
+      displayName: string;
+    },
+    thunkAPI
+  ) => {
     try {
       const res: AxiosResponse<{
         id: number;
@@ -43,13 +42,15 @@ export const register = createAuthAsyncThunk(
   }
 );
 
-/*
- * POST @ /users/login
- * body: { email, password }
- */
 export const logIn = createAuthAsyncThunk(
   "auth/login",
-  async (credentials, thunkAPI) => {
+  async (
+    credentials: {
+      username: string;
+      password: string;
+    },
+    thunkAPI
+  ) => {
     try {
       const res: AxiosResponse<{
         accessToken: string;
@@ -64,10 +65,6 @@ export const logIn = createAuthAsyncThunk(
   }
 );
 
-/*
- * POST @ /users/logout
- * headers: Authorization: Bearer token
- */
 export const logOut = createAuthAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
@@ -81,10 +78,6 @@ export const logOut = createAuthAsyncThunk(
   }
 );
 
-/*
- * GET @ /users/current
- * headers: Authorization: Bearer token
- */
 export const refreshToken = createAuthAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
