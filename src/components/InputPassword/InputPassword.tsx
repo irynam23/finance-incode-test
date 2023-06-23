@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import {
   StyledInput,
   StyledInputWrapper,
@@ -8,7 +8,7 @@ import {
 import { ReactComponent as EyeEmpty } from "../../icons/eye_empty.svg";
 import { ReactComponent as EyeOff } from "../../icons/eye_off.svg";
 
-export const InputPassword = () => {
+export const InputPassword = forwardRef((props: any, ref) => {
   const [isPasswordMasked, setIsPasswordMasked] = useState(true);
 
   const togglePasswordMask = () => {
@@ -20,7 +20,9 @@ export const InputPassword = () => {
       <StyledLabel>Password</StyledLabel>
       <StyledInputWrapper>
         <StyledInput
+          ref={ref}
           type={isPasswordMasked ? "password" : "text"}
+          {...props}
         ></StyledInput>
         <StyledButton type="button" onClick={togglePasswordMask}>
           {isPasswordMasked ? <EyeOff /> : <EyeEmpty />}
@@ -28,4 +30,4 @@ export const InputPassword = () => {
       </StyledInputWrapper>
     </>
   );
-};
+});

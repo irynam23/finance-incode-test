@@ -8,7 +8,7 @@ export const StyledWrapper = styled.div`
 
 export const StyledContainer = styled.div`
   width: 424px;
-  height: 900px;
+  min-height: 100vh;
   background-color: var(--black, #1d283a);
   padding: 48px;
 `;

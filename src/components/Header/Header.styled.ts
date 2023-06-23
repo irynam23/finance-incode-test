@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHeading = styled.h2`
+export const StyledHeading = styled.h3`
   color: var(--white, #fff);
   font-size: 36px;
   font-family: Montserrat;
@@ -8,7 +8,7 @@ export const StyledHeading = styled.h2`
   line-height: 1.5;
 `;
 
-export const StyledSubHeading = styled.h3`
+export const StyledSubHeading = styled.h5`
   color: var(--greener, #539713);
   font-size: 16px;
   font-family: Montserrat;
