@@ -9,12 +9,12 @@ export const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
-  color: var(--white, #fff);
+  color: #fff;
   font-size: 16px;
-  font-family: Montserrat;
+  font-family: inherit;
   font-weight: 600;
   line-height: 1.55;
-  background-color: var(--greener, #539713);
+  background-color: #539713;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
 

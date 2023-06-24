@@ -6,9 +6,9 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledTitle = styled.h1`
-  color: var(--white, #fff);
+  color: #fff;
   font-size: 56px;
-  font-family: Montserrat;
+
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 1.68px;
@@ -32,7 +32,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledInputWrapper = styled.div`
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #fff;
 `;
 
 export const StyledInput = styled.input`
@@ -40,9 +40,9 @@ export const StyledInput = styled.input`
   padding: 10px 0;
   border: none;
   font-size: 14px;
-  font-family: Montserrat;
+  font-family: inherit;
   line-height: 1.55;
-  color: white;
+  color: #fff;
   background-color: transparent;
   outline: none;
 `;
@@ -50,7 +50,7 @@ export const StyledInput = styled.input`
 export const StyledInfo = styled.p`
   color: #f1f2f1;
   font-size: 12px;
-  font-family: Montserrat;
+
   line-height: 1.55;
   margin-top: 24px;
 `;
@@ -58,7 +58,7 @@ export const StyledInfo = styled.p`
 export const StyledMessage = styled.p`
   color: red;
   font-size: 12px;
-  font-family: Montserrat;
+
   line-height: 1.55;
   margin: 0;
 `;
@@ -69,6 +69,6 @@ export const StyledBtn = styled.button`
   color: #7faaf0;
   cursor: pointer;
   font-size: 12px;
-  font-family: Montserrat;
+  font-family: inherit;
   line-height: 1.55;
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
-  background-color: var(--black, #1d283a);
+  background-color: #1d283a;
   padding: 48px;
   position: relative;
 `;
@@ -25,9 +25,9 @@ export const StyledImageVec = styled.img`
 `;
 
 export const StyledTitle = styled.h2`
-  color: var(--white, #fff);
+  color: #fff;
   font-size: 48px;
-  font-family: Montserrat;
+
   font-weight: 700;
   line-height: 1.5;
   text-transform: uppercase;
@@ -35,29 +35,30 @@ export const StyledTitle = styled.h2`
 
 export const StyledInfo = styled.p`
   width: 466px;
-  color: var(--white, #fff);
+  color: #fff;
   text-align: center;
   font-size: 16px;
-  font-family: Montserrat;
+
   font-weight: 600;
   line-height: 1.55;
   margin-top: 48px;
 `;
 
-export const StyledButton = styled.div`
+export const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
   margin-top: 48px;
   cursor: pointer;
   height: 44px;
   padding: 9.5px 16px;
-  color: var(--white, #fff);
+  color: #fff;
   font-size: 16px;
-  font-family: Montserrat;
+  font-family: inherit;
   font-weight: 600;
   line-height: 1.55;
-  background-color: var(--greener, #539713);
+  background-color: #539713;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
 `;

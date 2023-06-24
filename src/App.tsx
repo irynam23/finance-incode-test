@@ -1,4 +1,3 @@
-import "./App.css";
 import { Auth } from "./pages/Auth/Auth";
 import { Home } from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
@@ -40,7 +39,11 @@ const WrappedApp = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
-        <BrowserRouter>
+        <BrowserRouter
+          basename={
+            process.env.NODE_ENV === "development" ? "" : process.env.PUBLIC_URL
+          }
+        >
           <App />
         </BrowserRouter>
       </PersistGate>
